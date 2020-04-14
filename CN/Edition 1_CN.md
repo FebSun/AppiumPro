@@ -4,7 +4,7 @@
 
 Appium测试人员面临的一项挑战是：如何在被测设备中插入图片，不是任意照片，而是在APP中其行为具有已知结果的确切照片，以使该行为的验证成为可能。 
 
-诀窍是使用Appium的"pushFile"命令。这是一个鲜为人知的命令，可用于将文件推送到iOS容器中。在特殊模式下，它也可以利用simctl的addmedia命令在后台删除设备上任何你想删除的图片。pushFile命令的工作方式如下：
+诀窍是使用Appium的*pushFile*命令。这是一个鲜为人知的命令，可用于将文件推送到iOS容器中。在特殊模式下，它也可以利用*simctl*的*addmedia*命令在后台删除设备上任何你想删除的图片。*pushFile*命令的工作方式如下：
 ```
 driver.pushFile("myFileName.jpg", "/path/to/file/on/disk.jpg");
 ```
