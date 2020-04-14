@@ -3,10 +3,10 @@
 As promised, this week's edition is an Android-flavored follow-up to last week's tip on seeding the iOS simulator with test photos. The problem we're trying to solve is how to get pictures with known content onto the device for use in our App Under Test. This is a requirement for any type of app that utilizes or processes images.
 
 How do you test that your app does the right thing to a user-provided image?
+> 1. Take some image you have lying around, and input it manually to your application.
+> 2. Manually run the app function on your image. Maybe this is applying a certain type of filter, for example.
+> 3. Still manually, extract the modified image from your app any way you can (texting it to yourself, for example!)
 
-Take some image you have lying around, and input it manually to your application.
-Manually run the app function on your image. Maybe this is applying a certain type of filter, for example.
-Still manually, extract the modified image from your app any way you can (texting it to yourself, for example!)
 What these steps do is provide a gold-standard before-and-after which you can use as a test fixture. In an automated fashion now, we can provide the app with the same initial picture, run the desired function, and then retrieve the modified image. We can verify this modified image is byte-for-byte equivalent to our gold standard to ensure the app functionality still works as expected.
 
 In this edition we focus on the problem of getting our initial picture onto the device. How does one do this for Android? Happily, we use the same function as for iOS: pushFile. Under the hood, pushFile uses a series of ADB commands to shuffle the image to the device and then broadcast a system intent to refresh the media library. Since different device manufacturers put pictures in different places, you do need to know the path on your device that stores media. For emulators and at least some real devices, the path on the device is /mnt/sdcard/Pictures, so this is an important constant to your remember. As an example:
