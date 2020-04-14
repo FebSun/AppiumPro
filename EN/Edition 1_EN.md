@@ -4,7 +4,7 @@ One of the best things about mobile apps is how much access they have to all the
 
 One challenge for the Appium tester is to figure out how to seed the device under test with photos, and not just any photos, but the exact ones whose behavior within the app will have known results, to make verification of that behavior possible.
 
-The trick is to use Appium's *pushFile* command. This is a little-known command that enables pushing of files to the iOS app container. In a special mode, it can also leverage *simctl*'s *addmedia* command under the hood to drop whatever images you want on the device. The *pushFile* command works like this:
+The trick is to use Appium's ***pushFile*** command. This is a little-known command that enables pushing of files to the iOS app container. In a special mode, it can also leverage ***simctl***'s ***addmedia*** command under the hood to drop whatever images you want on the device. The ***pushFile*** command works like this:
 
 ```
 driver.pushFile("myFileName.jpg", "/path/to/file/on/disk.jpg");
