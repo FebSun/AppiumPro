@@ -9,12 +9,12 @@ How do you test that your app does the right thing to a user-provided image?
 
 What these steps do is provide a gold-standard before-and-after which you can use as a test fixture. In an automated fashion now, we can provide the app with the same initial picture, run the desired function, and then retrieve the modified image. We can verify this modified image is byte-for-byte equivalent to our gold standard to ensure the app functionality still works as expected.
 
-In this edition we focus on the problem of getting our initial picture onto the device. How does one do this for Android? Happily, we use the same function as for iOS: *pushFile*. Under the hood, *pushFile* uses a series of *ADB* commands to shuffle the image to the device and then broadcast a system intent to refresh the media library. Since different device manufacturers put pictures in different places, you do need to know the path on your device that stores media. For emulators and at least some real devices, the path on the device is */mnt/sdcard/Pictures*, so this is an important constant to your remember. As an example:
+In this edition we focus on the problem of getting our initial picture onto the device. How does one do this for Android? Happily, we use the same function as for iOS: ***pushFile***. Under the hood, ***pushFile*** uses a series of ***ADB*** commands to shuffle the image to the device and then broadcast a system intent to refresh the media library. Since different device manufacturers put pictures in different places, you do need to know the path on your device that stores media. For emulators and at least some real devices, the path on the device is ***/mnt/sdcard/Pictures***, so this is an important constant to your remember. As an example:
 ```
 driver.pushFile("/mnt/sdcard/Pictures/myPhoto.jpg", "/path/to/photo/locally/myPhoto.jpg");
 ```
 
-As you can see, the first argument is the remote path on the device where we want the picture to end up. This is where you may need to refer to documentation on your particular device or Android OS flavor to ensure you have the right path. The second argument is the path to the file on your local machine, where your test is running. When the test executes, the Appium client will encode this file as a string and send it over to the Appium server, which will then do the job of getting it on the device. This architecture is nice because it means that pushFile works whether you're running locally, or on a cloud provider like Sauce Labs.
+As you can see, the first argument is the remote path on the device where we want the picture to end up. This is where you may need to refer to documentation on your particular device or Android OS flavor to ensure you have the right path. The second argument is the path to the file on your local machine, where your test is running. When the test executes, the Appium client will encode this file as a string and send it over to the Appium server, which will then do the job of getting it on the device. This architecture is nice because it means that ***pushFile*** works whether you're running locally, or on a cloud provider like Sauce Labs.
 
 Let's take a look at a complete working example. In this example, we automate the built-in Google Photos app. First of all, we set up our desired capabilities to just use a built-in app:
 ```
@@ -76,7 +76,7 @@ ExpectedCondition condition = ExpectedConditions.numberOfElementsToBe(photo,1);
 wait.until(condition);
 ```
 
-As you can see, the actual bit we care about is as simple as calling pushFile. For the sake of this test, we are simply verifying that our picture exists at the end. In a real-world scenario, we'd then run our app functionality on the picture, and retrieve it from the device to perform some local verification on it.
+As you can see, the actual bit we care about is as simple as calling ***pushFile***. For the sake of this test, we are simply verifying that our picture exists at the end. In a real-world scenario, we'd then run our app functionality on the picture, and retrieve it from the device to perform some local verification on it.
 
 Bringing it all together, the entire test class looks like the following:
 ```
