@@ -78,5 +78,5 @@ public class Edition001_iOS_Photos {
 请注意，不要在图像名称前添加任何斜杠，否则Appium可能会认为您要将其复制到APP容器中，而不是将其添加到设备上的媒体库中，这一点很重要。
 
 
-[simctl]: simctl是iOS模拟器命令行管理工具，simctl于安卓的adb命令非常相似
+**simctl是iOS模拟器命令行管理工具，simctl于安卓的adb命令非常相似**
 
