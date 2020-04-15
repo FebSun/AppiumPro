@@ -31,6 +31,7 @@ String title = driver.getTitle();
 ```
 
 iOS真机的特别说明
+
 iOS真机唯一需要注意的警告是。由于Appium与Safari对话的方式（通过浏览器公开的远程调试器），需要额外的步骤将WebKit远程调试协议转换为usbmuxd公开的Apple的iOS Web检查器协议（Apple's iOS web inspector protocol）。听起来复杂吗？值得庆幸的是，Google的小伙伴们创建了一个启用此转译的工具，称为[ios-webkit-debug-proxy](https://github.com/google/ios-webkit-debug-proxy)（IWDP）。要在真机上运行Safari测试或混生测试，必须在系统上安装IWDP。有关如何操作的更多信息，您可以查看[Appium IWDP文档](https://appium.io/docs/en/writing-running-appium/web/ios-webkit-debug-proxy/)，安装完IWDP之后，您只需要在上述iOS集合中添加一个或两个capability，***udid***和***startIWDP***：
 ```
 // extra capabilities for Safari on a real iOS device
@@ -43,6 +44,7 @@ capabilities.setCapability("startIWDP", true);
 ***请注意，在iOS真机上运行测试本身就是一个完整的主题，我将在以后的文章中对其进行详细介绍。同时，您可以参考Appium文档站点上的[real device documentation](https://appium.io/docs/en/drivers/ios-xcuitest-real-devices/)***
 
 Android的特别说明
+
 幸运的是，在Android中事情变得更加简单，因为对于模拟器和真机，Appium都可以利用[Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/)。当你想自动化任何基于Chrome的浏览器或Webview时，Appium只需在后台管理一个新的Chromedriver进程，即可获得WebDriver服务的全部功能，而无需自己进行任何设置。但是，这意味着你需要确保Android系统上的Chrome版本与Appium使用的Chromedriver版本兼容。如果不兼容，则会收到一条很明显的错误消息，提示你需要升级Chrome。
 
 如果不想升级Chrome，实际上可以在安装Appium时使用***--chromedriver_version***标志告诉Appium你要安装的Chromedriver版本。例如：
