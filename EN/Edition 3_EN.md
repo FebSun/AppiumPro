@@ -18,9 +18,10 @@ driver.executeScript("mobile: shell", <arg>);
 
 What is ***arg*** here? It needs to be a JSONifiable object with two keys:
 
-command: a String, the command to be run under adb shell
-args: an array of Strings, the arguments passed to the shell command.
-For the purposes of our example, let's say we want to clear out the pictures on the SD card, and that on our device, these are located at ***/mnt/sdcard/***Pictures. If we were running ADB on our own without Appium, we'd accomplish our goal by running:
+1. command: a String, the command to be run under adb shell
+2. args: an array of Strings, the arguments passed to the shell command.
+
+For the purposes of our example, let's say we want to clear out the pictures on the SD card, and that on our device, these are located at ***/mnt/sdcard/Pictures***. If we were running ADB on our own without Appium, we'd accomplish our goal by running:
 ```
 adb shell rm -rf /mnt/sdcard/Pictures/*.*
 ```
