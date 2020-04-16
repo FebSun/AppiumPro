@@ -96,12 +96,12 @@ Predicate Format Strings are a typical Apple dev thing, and they also work in iO
 
 One example from the WebDriverAgent predicate string guide shows a fun compound predicate:
 ```
-type == 'XCUIElementTypeButton' AND value BEGINSWITH`[c]` 'bla' AND visible == 1
+type == 'XCUIElementTypeButton' AND value BEGINSWITH[c] 'bla' AND visible == 1
 ```
 
 This predicate string would match any visible button whose value begins with 'bla'. How would we write this up in our Java client code? Simply by using the appropriate ***MobileBy*** method, as follows:
 ```
-String selector = "type == 'XCUIElementTypeButton' AND value BEGINSWITH`[c]` 'bla' AND visible == 1";
+String selector = "type == 'XCUIElementTypeButton' AND value BEGINSWITH[c] 'bla' AND visible == 1";
 driver.findElement(MobileBy.iOSNsPredicateString(selector));
 ```
 
@@ -110,9 +110,9 @@ Because predicate matching is built into XCUITest, it has the potential to be mu
 ### iOS Class Chain Strategy
 The final option is a sort of hybrid between XPath and predicate strings: the ***-ios class chain*** locator strategy. This was developed by the Appium team to meet the need of hierarchical queries in a more performant way. The types of queries possible via the class chain strategy are not as powerful as those enabled by XPath, but this restriction means a better performance guarantee (this is because it is possible to map class chain queries into a series of direct XCUITest calls, rather than having to recursively build an entire UI tree). Class chain queries look very much like XPath queries, however the only allowed filters are basic child/descendant indexing or predicate string matching. It's worth checking out the class chain docs to find a number of examples. Let's take a look at just a couple:
 
-- XCUIElementTypeWindow`[2]` selects the second window in the hierarchy.
-- XCUIElementTypeWindow`[``label BEGINSWITH "foo"``][`-1`]` selects the last window whose label begins with foo.
-- **/XCUIElementTypeCell`[``name BEGINSWITH "C"``]`/XCUIElementTypeButton`[10]` selects the 10th child button of the first cell in the tree whose name starts with C and which has at least ten direct children of type XCUIElementTypeButton.
+- `XCUIElementTypeWindow[2] selects the second window in the hierarchy.`
+- XCUIElementTypeWindow[`label BEGINSWITH "foo"`][-1] selects the last window whose label begins with foo.
+- **/XCUIElementTypeCell[`name BEGINSWITH "C"`]/XCUIElementTypeButton[10] selects the 10th child button of the first cell in the tree whose name starts with C and which has at least ten direct children of type XCUIElementTypeButton.
 Just as before, there is a special ***MobileBy*** method to hook up your class chain queries in the Java client:
 ```
 driver.findElement(MobileBy.iOSClassChain(selector));
