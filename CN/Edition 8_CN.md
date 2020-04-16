@@ -1,9 +1,12 @@
 ## How to Find Elements in iOS (Not) By XPath
 
 Finding elements for use in your Appium tests is done by means of one of a number of locator strategies. Appium inherited a number of locator strategies from Selenium, and different Appium drivers have also added some new locator strategies to make finding elements faster and more effective. Let's take a look at all the locator strategies available, and which ones are supported in the current flagship iOS driver (the XCUITest driver):
-<table{
-    text-align:center;
-}> 
+<table class="table"> 
+    <style>
+        .class={
+            margin: 0px auto;
+        }
+    </style>>
     <thead> 
         <tr> 
              <th>Locator Strategy</th> 
