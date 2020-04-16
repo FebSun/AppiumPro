@@ -9,7 +9,7 @@ Luckily for Appium users, all kinds of interesting performance data is available
 driver.getPerformanceData("<package>", "<perf type>", <timeout>);
 ```
 
-Here, ***<package>*** is the package of your AUT (or any other app you wish to profile). ***<perf type>*** is what kind of performance data you want. There is another handy driver command (getSupportedPerformanceDataTypes) which tells you which types are valid. For the time being, they are: ***cpuinfo***, ***memoryinfo***, ***batteryinfo***, and ***networkinfo***. Finally, ***<timeout>*** is an integer denoting the number of seconds Appium will poll for performance data if it is not immediately available.
+Here, ***package*** is the package of your AUT (or any other app you wish to profile). ***perf type*** is what kind of performance data you want. There is another handy driver command (getSupportedPerformanceDataTypes) which tells you which types are valid. For the time being, they are: ***cpuinfo***, ***memoryinfo***, ***batteryinfo***, and ***networkinfo***. Finally, ***timeout*** is an integer denoting the number of seconds Appium will poll for performance data if it is not immediately available.
 
 There's too much to dig into in one edition, so let's focus on a simple example involving memory usage. One problem encountered by many apps at some point in their history is a memory leak. Despite living in a garbage-collected environment, Android apps can still cause memory to be locked up in an unusable state. It's therefore important to test that your app is not using increasing amounts of memory over time, without good reason.
 

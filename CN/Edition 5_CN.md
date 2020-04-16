@@ -9,7 +9,7 @@
 driver.getPerformanceData("<package>", "<perf type>", <timeout>);
 ```
 
-在这里，***<package>*** 是您的AUT（或任何你要分析的App）软件包。***<perf type>*** 是你想要的性能数据类型。还有另一个方便的驱动程序命令（[getSupportedPerformanceDataTypes](https://appium.io/docs/en/commands/device/performance-data/performance-data-types/)），可以告诉你哪些类型有效。目前，它们是：***cpuinfo*** ，***memoryinfo*** ，***batteryinfo*** 和 ***networkinfo*** 。最后，***<timeout>*** 是一个整数，表示不能立即获得Appium性能数据时的轮询秒数。
+在这里，***package*** 是您的AUT（或任何你要分析的App）软件包。***perf type*** 是你想要的性能数据类型。还有另一个方便的驱动程序命令（[getSupportedPerformanceDataTypes](https://appium.io/docs/en/commands/device/performance-data/performance-data-types/)），可以告诉你哪些类型有效。目前，它们是：***cpuinfo*** ，***memoryinfo*** ，***batteryinfo*** 和 ***networkinfo*** 。最后，***timeout*** 是一个整数，表示不能立即获得Appium性能数据时的轮询秒数。
 
 在这一章中有太多内容需要探讨，因此让我们集中讨论一个内存使用的简单示例。 许多App曾经遭遇过的一个问题是内存泄漏。尽管使用了垃圾收集机制，但Android App仍然会引起内存锁定而无法使用。 因此，测试的重点是，你的APP没有正当理由时，不会使用越来越多的内存。
 
