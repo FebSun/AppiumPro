@@ -80,7 +80,7 @@ Finding elements for use in your Appium tests is done by means of one of a numbe
 
 So, for our iOS tests we have access to 7 locator strategies, including the infamous XPath. Before we look at alternatives, let's explore why using the XPath locator strategy is attractive, and why it is often a bad idea regardless.
 
-Why (Not) XPath?
+### Why (Not) XPath?
 XPath is attractive because it is a hierarchy-based locator strategy, and can thus find any element in the DOM (for Selenium) or app hierarchy (for Appium). Often, apps come to us in such a form that elements are not annotated as they should be for the sake of testability. It's easy to rely on XPath to find an element with a selector like ***`//*[1]/*[1]/*[3]/*[2]/*[1]/*[1]`***, especially when there's seemingly no other way to find that element.
 
 Of course, relying on a selector like this is a horrible idea, because it will be invalidated by just about any change to your app hierarchy. That's the trouble with relying on a hierarchical description of your element---the app hierarchy is typically far from stable. It could change between runs (because different data is displayed, for example), or between versions of your app (because the app devs add a new component, or simply change an underlying UI library).
