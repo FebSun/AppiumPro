@@ -23,7 +23,7 @@ driver.executeScript("mobile: launchApp", args);
 
 ***args*** 是什么样的？ 在任何情况下，它们都应该是 ***HashMap***，可以用于生成简单的JSON结构。***TerminateApp*** 和 ***launchApp*** 命令都具有一个键 ***bundleId*** （当然，这是App的包ID）。 ***installApp*** 使用 ***app*** key，该key是新版本App的路径或URL
 
-对于我们的示例而言，要创建一个通过的测试，我们需要两个应用程序：v1.0.0和v1.0.2：
+对于我们的示例而言，要创建一个有效的测试，我们需要两个应用程序：v1.0.0和v1.0.2：
 ```
 private String APP_V1_0_0 = "https://github.com/cloudgrey-io/the-app/releases/download/v1.0.0/TheApp-v1.0.0.app.zip";
 private String APP_V1_0_2 = "https://github.com/cloudgrey-io/the-app/releases/download/v1.0.2/TheApp-v1.0.2.app.zip";
