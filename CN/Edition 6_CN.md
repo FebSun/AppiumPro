@@ -43,7 +43,7 @@ driver.executeScript("mobile: installApp", installArgs);
 driver.executeScript("mobile: launchApp", bundleArgs);
 ```
 
-对于完整的测试流程，我们希望：
+对于完整的测试流程，我们要做的是：
 1. 打开v1.0.0
 2. 添加我们保存的消息并验证它是否存在
 3. 升级到v1.0.2
