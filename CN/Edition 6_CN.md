@@ -29,7 +29,7 @@ private String APP_V1_0_0 = "https://github.com/cloudgrey-io/the-app/releases/do
 private String APP_V1_0_2 = "https://github.com/cloudgrey-io/the-app/releases/download/v1.0.2/TheApp-v1.0.2.app.zip";
 ```
 
-我很乐意在这里使用GitHub URL反馈给Appium。 假设我们已经把 ***APP_V1_0_0*** 作为 ***app*** capability开始测试了，那么App升级的三个命令的如下：
+我很乐意在这里把GitHub的下载链接反馈给Appium。假设我们已经把 ***APP_V1_0_0*** 作为 ***app*** capability开始测试了，那么App升级的三个命令的如下：
 ```
 HashMap<String, String> bundleArgs = new HashMap<>();
 bundleArgs.put("bundleId", BUNDLE_ID);
